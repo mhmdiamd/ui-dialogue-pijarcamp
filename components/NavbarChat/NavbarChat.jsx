@@ -1,10 +1,11 @@
 import { faEllipsisV, faEllipsisVertical, faFolderOpen, faImage, faPhoneVolume, faVideo, faVolumeHigh } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import style from './NavbarChat.module.css'
 
 const NavbarChat = () => {
   return (
-    <nav className="navbar px-2 shadow bg-dark navbar-expand-lg">
+    <nav className={`${style.navbar} navbar px-2 py-3 shadow bg-dark navbar-expand-lg`}>
       <div className="container">
         <div className="userInformation d-flex">
           <img src="https://source.unsplash.com/random/45x45/?person" className={`img-fluid pointer image-contact`} width={64} height={62} alt="" />

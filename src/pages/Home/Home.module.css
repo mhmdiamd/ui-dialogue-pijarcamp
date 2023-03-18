@@ -1,10 +1,20 @@
-.colChat {
-  border-radius: 10px 10px 0 0;
+.chatContent {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .chat {
   max-width: 80%;
   width: fit-content;
+}
+
+.colChat {
+  margin-top: 86px;
+  margin-bottom: 56px;
 }
 
 .colSend {
