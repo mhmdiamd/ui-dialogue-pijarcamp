@@ -1,0 +1,73 @@
+.bg-dark {
+  background-color: #272A37 !important;
+}
+
+.bg-dark-secondary {
+  background-color: #414555 !important;
+}
+
+.bg-dark-trinary {
+  background-color: #323644 !important;
+}
+
+.bg-blue {
+  background-color: #1D90F5 !important;
+}
+
+.text-blue {
+  color: #1D90F5 !important;
+}
+
+.border-blue {
+  border-color: #1D90F5 !important;
+}
+
+.text-secondary{
+  color: #757889 !important;
+}
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.text-medium {
+  font-size: 14px;
+}
+.rounded-chat {
+  border-radius: 10px;
+}
+
+.image-contact {
+  border-radius: 15px;
+  width: 54px;
+  height: 52px; 
+}
+
+.image-chat {
+  border-radius: 10px;
+  width: 42px;
+  height: 42px; 
+  max-height: 42px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #323644;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1D90F5; 
+  border-radius: 2px 2px 2px 2px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

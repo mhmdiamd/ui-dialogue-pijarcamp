@@ -1,0 +1,20 @@
+.colChat {
+  border-radius: 10px 10px 0 0;
+}
+
+.chat {
+  max-width: 80%;
+  width: fit-content;
+}
+
+.colSend {
+  border-radius: 0 0 10px 10px;
+}
+
+.chatOtherUser {
+  border-radius: 17px 17px 17px 3px;
+}
+
+.chatPerson {
+  border-radius: 17px 17px 3px 17px;
+}
