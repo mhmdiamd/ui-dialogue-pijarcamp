@@ -1,16 +1,20 @@
 import { faEllipsisV, faEllipsisVertical, faFolderOpen, faImage, faPhoneVolume, faVideo, faVolumeHigh } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import style from './NavbarChat.module.css'
 
 const NavbarChat = () => {
+
+  const {contactInfo, messages} = useSelector(state => state.message)
+
   return (
     <nav className={`${style.navbar} navbar px-2 py-3 shadow bg-dark navbar-expand-lg`}>
       <div className="container">
         <div className="userInformation d-flex">
           <img src="https://source.unsplash.com/random/45x45/?person" className={`img-fluid pointer image-contact`} width={64} height={62} alt="" />
           <div className="d-flex flex-column justify-content-center ms-2">
-            <span className='fw-bold text-light'>Muhamad Ilham Darmawan</span>
+            <span className='fw-bold text-light'>{contactInfo?.name}</span>
             <span className='text-secondary d-block text-medium'>@mhmdiamd</span>
           </div>
         </div>

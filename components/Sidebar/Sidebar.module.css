@@ -1,0 +1,35 @@
+.searchIcon {
+  left: 12px;
+}
+
+.contactContent {
+  height: 75% !important;
+}
+
+@media (max-width: 576px){
+  .contactContent {
+    height: 100% !important;
+  }
+}
+
+/* width */
+.chatListContact::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.chatListContact::-webkit-scrollbar-track {
+  background: #272A37;
+}
+ 
+/* Handle */
+.chatListContact::-webkit-scrollbar-thumb {
+  background: #414555; 
+  border-radius: 2px 2px 2px 2px;
+
+}
+
+/* Handle on hover */
+.chatListContact::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

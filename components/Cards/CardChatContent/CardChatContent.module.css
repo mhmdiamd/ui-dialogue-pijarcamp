@@ -1,0 +1,54 @@
+.chatContent {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.chat {
+  max-width: 80%;
+  width: fit-content;
+}
+
+.colChat {
+  padding-top: 90px !important;
+  padding-bottom: 56px !important;
+}
+
+.colSend {
+  border-radius: 0 0 10px 10px;
+}
+
+.chatOtherUser {
+  border-radius: 17px 17px 17px 3px;
+}
+
+.chatPerson {
+  border-radius: 17px 17px 3px 17px;
+}
+
+/* .overflow */
+
+/* width */
+.overflow::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.overflow::-webkit-scrollbar-track {
+  background: #323644;
+}
+ 
+/* Handle */
+.overflow::-webkit-scrollbar-thumb {
+  background: #1D90F5; 
+  border-radius: 2px 2px 2px 2px;
+
+}
+
+/* Handle on hover */
+.overflow::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

@@ -1,16 +1,33 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import style from './CardChat.module.css'
+import photoDefault from '../../../src/assets/profile.png'
+import { useGetMessageByIdChatQuery } from '../../../src/features/message/messageApi'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCurrentChat } from '../../../src/features/message/messageSlice'
 
-const CardChat = ({className, classChat, data}) => {
+const CardChat = ({ className, classChat, data }) => {
+  const dispatch = useDispatch()
+  const [contact, setContact] = useState({})
+  const { data: userMessage, isSuccess, isLoading } = useGetMessageByIdChatQuery(data?._id, { skip: data?._id ? false : true })
+  const { user } = useSelector(state => state.auth)
+
+  const clickHandler = async (e) => {
+    dispatch(setCurrentChat({ contactInfo: contact, messages: userMessage?.messages, chatId: data?._id }))
+  }
+
+  useEffect(() => {
+    setContact(data?.members?.filter(member => member._id != user?._id)[0])
+  }, [user])
+
+
   return (
-    <Link className={`${className} col-12 d-flex gap-3 mb-3 pointer text-decoration-none`}>
-      <img src="https://source.unsplash.com/random/64x64/?person" className={`image-contact img-fluid  pointer`} width={64} height={62} alt="" />
+    <div className={`${className} col-12 d-flex gap-3 mb-3 pointer`} onClick={clickHandler}>
+      <img src={`${contact?.photo ? contact?.photo : photoDefault}`} className={`image-contact img-fluid  pointer`} width={64} height={62} alt="" />
       <div className="message d-flex flex-column justify-content-center overflow-x-hidden text-nowrap">
-        <span className='text-light fw-bold'>Muhamad Ilham Darmawan</span>
-        <span className={`${style.textChat} ${classChat} fw-normal`}>Lorem ipsum dolor sit amet</span>
+        <span className='text-light fw-bold'>{contact?.name}</span>
+        <span className={`${style.textChat} ${classChat} fw-normal`}>{data?.lastMessage?.text || `Hello World!`}</span>
       </div>
-    </Link>
+    </div>
   )
 }
 

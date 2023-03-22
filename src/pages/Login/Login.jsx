@@ -1,17 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import InputFormAuth from '../../../components/Forms/InputFormAuth/InputFormAuth'
 import AuthenticationLayout from '../../../templates/AuthenticationLayout/AuthenticationLayout'
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
+import { useLoginMutation } from '../../features/auth/authApi';
+import { setCredentials } from '../../app/reducer/authSlice';
+import { useDispatch } from 'react-redux';
+import { failedLoading, showLoading } from '../../common/loadingHandler';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+  const [login, {isSuccess, isLoading, isError, error}] = useLoginMutation()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [data, setData] = useState({
-    name: "",
+    email: "",
     password: "",
   })
 
   const changeHandler = async (e) => {
+    console.log(data)
     setData(prev => {
       return {
         ...prev,
@@ -22,7 +31,27 @@ const Login = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault()
+
+    try{
+      const res = await login(data)
+      const {token, refreshToken, ...other } = res.data.data
+      dispatch(setCredentials({user: other, token: refreshToken}))
+    }catch(err){
+      console.log(err)
+    }
   }
+
+  useEffect(() => {
+    if(isSuccess) {
+      Swal.close()
+      navigate(`/`)
+    }
+    if(isLoading) showLoading('Please Wait...')
+    if(isError) {
+      failedLoading(error?.data?.message || `Something went wrong!`)
+    }
+  }, [isLoading, isSuccess, isError])
+
   return (
     <AuthenticationLayout 
       classLeft={`col-6 d-md-block d-none`}
