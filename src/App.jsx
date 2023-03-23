@@ -8,6 +8,7 @@ import Register from './pages/Register/Register'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetCurrentDataQuery } from './features/auth/authApi'
 import { setCredentials } from './app/reducer/authSlice'
+import AuthenticateRoute from './middleware/AuthenticateRoute'
 
 function App() {
   const dispatch = useDispatch()
@@ -24,7 +25,10 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
+      <Route path='/' element={
+          <Home />
+      } 
+      />
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
     </Routes>

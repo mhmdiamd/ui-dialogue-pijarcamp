@@ -6,10 +6,41 @@
   height: 75% !important;
 }
 
+.modalAddContact {
+  min-height: 50% !important;
+}
+
+
+.labelMember {
+  width: fit-content;
+}
+
+
 @media (max-width: 576px){
   .contactContent {
     height: 100% !important;
   }
+}
+
+.bodyModalSearchContact::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.bodyModalSearchContact::-webkit-scrollbar-track {
+  background: #272A37;
+}
+ 
+/* Handle */
+.bodyModalSearchContact::-webkit-scrollbar-thumb {
+  background: #414555; 
+  border-radius: 2px 2px 2px 2px;
+
+}
+
+/* Handle on hover */
+.bodyModalSearchContact::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 
 /* width */

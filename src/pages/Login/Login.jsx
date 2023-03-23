@@ -20,7 +20,6 @@ const Login = () => {
   })
 
   const changeHandler = async (e) => {
-    console.log(data)
     setData(prev => {
       return {
         ...prev,
@@ -35,7 +34,7 @@ const Login = () => {
     try{
       const res = await login(data)
       const {token, refreshToken, ...other } = res.data.data
-      dispatch(setCredentials({user: other, token: refreshToken}))
+      dispatch(setCredentials({user: other, token: refreshToken, accessToken: token}))
     }catch(err){
       console.log(err)
     }

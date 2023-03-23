@@ -1,8 +1,12 @@
-/* .photo {
-  max-width: 40px ;
-  max-height: 40px ;
-} */
+.otherUser {
+  border-radius: 17px 17px 17px 3px;
+}
 
-.textChat {
-  font-size: 14px !important;
+.currentUser {
+  border-radius: 17px 17px 3px 17px;
+}
+
+.chat {
+  max-width: 80%;
+  width: fit-content;
 }

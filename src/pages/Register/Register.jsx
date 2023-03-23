@@ -16,7 +16,6 @@ const Register = () => {
   const [register, { isLoading, isSuccess, isError, error }] = useRegisterMutation()
 
   const changeHandler = async (e) => {
-    console.log(data)
     setData(prev => {
       return {
         ...prev,

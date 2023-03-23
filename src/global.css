@@ -49,6 +49,9 @@
   height: 42px; 
   max-height: 42px;
 }
+.modal-dialog {
+  z-index: 999 !important;
+}
 
 /* width */
 /* ::-webkit-scrollbar {

@@ -1,12 +1,15 @@
 import { apiSlice } from "../../app/api/authApi";
 
 export const messageApi = apiSlice.injectEndpoints({
+  tagTypes: ['getMessageByIdChat'],
   endpoints: (builder) => ({
     getMessageByIdChat: builder.query({
       query: (id) => ({
         url: `messages/chat/${id}`,
       }),
 
+      providesTags:[`getMessageByIdChat`],
+      invalidatesTags:[`getMessageByIdChat`],
       transformResponse: (response, meta, args) => response.data
     }),
 
@@ -17,7 +20,7 @@ export const messageApi = apiSlice.injectEndpoints({
         body: data,
       }),
 
-      invalidatesTags: ['getUserChat'],
+      invalidatesTags: ['getUserChat', "getMessageByIdChat"],
       transformResponse: (response, meta, args) => response.data
     }),
   }),

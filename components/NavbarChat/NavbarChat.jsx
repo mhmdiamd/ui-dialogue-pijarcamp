@@ -1,18 +1,32 @@
-import { faEllipsisV, faEllipsisVertical, faFolderOpen, faImage, faPhoneVolume, faVideo, faVolumeHigh } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faEllipsisV, faEllipsisVertical, faFolderOpen, faImage, faPhoneVolume, faVideo, faVolumeHigh } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCurrentChat } from '../../src/features/message/messageSlice'
 import style from './NavbarChat.module.css'
 
 const NavbarChat = () => {
-
+  const dispatch = useDispatch()
   const {contactInfo, messages} = useSelector(state => state.message)
+
+  const backHandler = (e) => {
+    dispatch(setCurrentChat({
+      contactInfo: null,
+      messages: undefined,
+      chatId: undefined,
+    }))
+  }
 
   return (
     <nav className={`${style.navbar} navbar px-2 py-3 shadow bg-dark navbar-expand-lg`}>
       <div className="container">
-        <div className="userInformation d-flex">
-          <img src="https://source.unsplash.com/random/45x45/?person" className={`img-fluid pointer image-contact`} width={64} height={62} alt="" />
+        <div className="userInformation d-flex align-items-center">
+          <FontAwesomeIcon className='text-light me-2 d-sm-none fs-5' icon={faArrowLeft} onClick={backHandler}/>
+
+          <img src="https://source.unsplash.com/random/45x45/?person" className={`img-fluid pointer rounded-circle d-sm-none`} width={45} height={45} alt="" />
+
+          <img src="https://source.unsplash.com/random/45x45/?person" className={`img-fluid pointer image-contact d-none d-sm-block`} width={64} height={62} alt="" />
+
           <div className="d-flex flex-column justify-content-center ms-2">
             <span className='fw-bold text-light'>{contactInfo?.name}</span>
             <span className='text-secondary d-block text-medium'>@mhmdiamd</span>

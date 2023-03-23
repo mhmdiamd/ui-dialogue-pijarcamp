@@ -1,0 +1,25 @@
+
+
+@media (max-width: 576px) {
+  .leftSide {
+    position: absolute !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+  }
+
+  .rightSide {
+    position: absolute !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 8;
+  }
+
+  .onTop {
+    z-index: 10 !important;
+  }
+}
