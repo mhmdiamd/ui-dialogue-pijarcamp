@@ -62,8 +62,9 @@ const Login = () => {
           <div className="card bg-transparent border-0">
             <div className="card-body">
               <Form onSubmit={submitHandler}>
-                <h5 className="card-title text-light fs-1">Login</h5>
-                <p className="mb-2 small text-light mt-2 mb-3 mt-3">If you want to join our chat app, get ready for a lot of 'chat'-ter and laughter because we're a funny bunch!</p>
+                <h1 className='text-light mb-5 fw-bold'>Welcome in  <br /> <span className='text-blue'>Dialogue!</span></h1>
+                <h5 className="card-title text-light fs-3">Login</h5>
+                <p className="mb-2 small text-light mt-2 mb-3 mt-3">Login and join now, we give so many Social Experience, Lets Join in Dialverse!</p>
 
                 <InputFormAuth className={`text-light`} type={`email`} name={'email'} placeholder={`Input Email`} title={`Email`} required={true} onchange={changeHandler}/>
 

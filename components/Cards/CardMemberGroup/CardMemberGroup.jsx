@@ -1,7 +1,4 @@
-import React, { useEffect } from 'react'
-import Swal from 'sweetalert2'
-import { failedLoading, showLoading, successLoading } from '../../../src/common/loadingHandler'
-import { useCreateUserChatMutation } from '../../../src/features/user/userApi'
+import React from 'react'
 
 const CardMemberGroup = ({ data, onclick }) => {
   return (

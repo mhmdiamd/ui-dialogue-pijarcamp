@@ -26,7 +26,9 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={
+        <AuthenticateRoute>
           <Home />
+        </AuthenticateRoute>
       } 
       />
       <Route path='/login' element={<Login />} />

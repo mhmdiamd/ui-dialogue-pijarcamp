@@ -6,11 +6,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentChat } from '../../../src/features/message/messageSlice'
 
 const CardContactGroup = ({ className, classChat, data }) => {
-  console.log(data)
   const dispatch = useDispatch()
   const [contact, setContact] = useState({})
   const { messages, chatId } = useSelector(state => state.message)
-  const { data: userMessage, isSuccess, isLoading } = useGetMessageByIdChatQuery(data._id)
+  const { data: userMessage } = useGetMessageByIdChatQuery(data._id)
   const { user } = useSelector(state => state.auth)
 
   const clickHandler = async (e) => {

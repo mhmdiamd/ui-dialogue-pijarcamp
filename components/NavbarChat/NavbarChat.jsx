@@ -8,6 +8,15 @@ import style from './NavbarChat.module.css'
 const NavbarChat = () => {
   const dispatch = useDispatch()
   const {contactInfo, messages} = useSelector(state => state.message)
+  const { activeUsers } = useSelector(state => state.user)
+
+  const isOnline = () => {
+    const users = activeUsers?.filter(user => user.userId == contactInfo._id)
+
+    if(users?.length > 0) return true
+    return false
+  }
+
 
   const backHandler = (e) => {
     dispatch(setCurrentChat({
@@ -29,7 +38,9 @@ const NavbarChat = () => {
 
           <div className="d-flex flex-column justify-content-center ms-2">
             <span className='fw-bold text-light'>{contactInfo?.name}</span>
-            <span className='text-secondary d-block text-medium'>@mhmdiamd</span>
+            <span className='text-secondary d-block text-medium'>{
+              isOnline() ? 'Online' : 'Offline'
+            }</span>
           </div>
         </div>
         <button className="navbar-toggler shadow-none border-0 text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

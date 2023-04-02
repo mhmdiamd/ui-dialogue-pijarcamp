@@ -8,22 +8,46 @@ export const messageApi = apiSlice.injectEndpoints({
         url: `messages/chat/${id}`,
       }),
 
-      providesTags:[`getMessageByIdChat`],
-      invalidatesTags:[`getMessageByIdChat`],
+      providesTags: [`getMessageByIdChat`],
+      transformResponse: (response, meta, args) => response.data
+    }),
+
+    deleteMessageById: builder.mutation({
+      query: ({ id_room, id_message }) => ({
+        url: `messages/chat/delete/${id_room}`,
+        method: "PUT",
+        body: { id_message }
+      }),
+
+      invalidatesTags: ["getMessageByIdChat"],
+      transformResponse: (response, meta, args) => response.data
+    }),
+
+    updateMessageById: builder.mutation({
+      query: ({ id_room, id_message,text }) => ({
+        url: `messages/chat/edit/${id_room}`,
+        method: "PUT",
+        body: { id_message, text }
+      }),
+
+      invalidatesTags: ["getMessageByIdChat"],
       transformResponse: (response, meta, args) => response.data
     }),
 
     sendMessage: builder.mutation({
-      query: ({chatId, data}) => ({
-        url: `messages/${chatId}`,
-        method: `PUT`,
-        body: data,
-      }),
+      query: ({ chatId, data }) => {
+        return {
+          url: `messages/${chatId}`,
+          method: `PUT`,
+          body: data,
+        }
+      },
 
-      invalidatesTags: ['getUserChat', "getMessageByIdChat"],
+      providesTags: ['sendMessage'],
+      invalidatesTags: ["getMessageByIdChat", "getUserChat"],
       transformResponse: (response, meta, args) => response.data
     }),
   }),
 });
 
-export const { useGetMessageByIdChatQuery, useSendMessageMutation } = messageApi
+export const { useGetMessageByIdChatQuery, useSendMessageMutation, useDeleteMessageByIdMutation, useUpdateMessageByIdMutation } = messageApi
