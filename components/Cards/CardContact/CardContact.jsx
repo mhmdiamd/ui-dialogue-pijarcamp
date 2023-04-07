@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentChat } from '../../../src/features/message/messageSlice'
 import { setCurrentContact } from '../../../src/features/userChat/userChatSlice'
 
-const CardContact = ({ className, classChat, data, isOnline }) => {
+const CardContact = ({ className, classChat, data, isOnline, photo }) => {
   const dispatch = useDispatch()
   const [contact, setContact] = useState(false)
   const { data: userMessage} = useGetMessageByIdChatQuery(data._id)
@@ -33,7 +33,7 @@ const CardContact = ({ className, classChat, data, isOnline }) => {
   return (
     <div className={`${className} col-12 d-flex gap-3 mb-3 pointer`} onClick={clickHandler}>
       <img 
-        src={`${contact?.photo ? contact?.photo : photoDefault}`} 
+        src={photo} 
         className={`image-contact img-fluid`} 
         width={64} height={62} alt="" />
       <div className="message d-flex flex-column justify-content-center overflow-x-hidden text-nowrap">

@@ -6,7 +6,7 @@ const AuthenticationLayout = ({children, className, classLeft, classRight}) => {
     <div className="container-fluid">
       <div className={`row vh-100 overflow-y-hidden ${className}`}>
         <div className={`${classLeft} vh-100`}>
-          <div className="imageLogo h-100 d-flex flex-column justify-content-center align-items-center">
+          <div className="imageLogo h-100 d-flex flex-column justify-content-end align-items-center">
             <img src={bgAuth} className={`img-fluid d-block`} alt="" />
           </div>
         </div>

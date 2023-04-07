@@ -64,7 +64,7 @@ const CardChat = ({ data, user, scrollRef, index }) => {
 
         </div>
 
-        <img src="https://source.unsplash.com/random/64x64/?person" className={`image-chat img-fluid pointer d-sm-block d-none`} alt="" />
+        <img src={`${user?.photo ? user.photo : 'https://source.unsplash.com/random/64x64/?person'}`} className={`image-chat img-fluid pointer d-sm-block d-none`} alt="" />
       </div>
     ) : (
       <div ref={scrollRef}

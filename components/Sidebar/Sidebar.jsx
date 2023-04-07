@@ -256,7 +256,13 @@ const Sidebar = ({ className }) => {
                 ))
                 :
                 chats?.map((chat, i) => (
-                  <CardContact key={i} data={chat} isOnline={setIsOnline(chat)} classChat={`text-secondary `} />
+                  <CardContact 
+                    key={i} 
+                    data={chat} 
+                    isOnline={setIsOnline(chat)} 
+                    classChat={`text-secondary `} 
+                    photo={`https://source.unsplash.com/random/45x4${5 + i}/?person`}
+                  />
                 ))
               }
             </div>
@@ -332,7 +338,7 @@ const Sidebar = ({ className }) => {
                     <button className='btn bg-blue text-light py-1' onClick={createGroupHandler}>Create Group</button>
                   </div>
                   {user?.contacts?.map((chat, i) => (
-                    <CardMemberGroup key={i} data={chat} onclick={() => addMemberToState(chat)} />
+                    <CardMemberGroup key={i} data={chat} i={i} onclick={() => addMemberToState(chat)} />
                   ))}
                 </div>
               </div>
