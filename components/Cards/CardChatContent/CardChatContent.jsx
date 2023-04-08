@@ -21,7 +21,7 @@ const CardChatContent = () => {
   const scroll = useRef()
 
   useEffect(() => {
-    socket.current = io('http://localhost:3000')
+    socket.current = io(import.meta.env.VITE_SOCKET_ENDPOINT)
   }, [])
 
   useEffect(() => {

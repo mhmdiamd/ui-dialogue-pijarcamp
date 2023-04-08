@@ -4,7 +4,6 @@ import photoDefault from '../../../src/assets/profile.png'
 import { messageApi, useGetMessageByIdChatQuery } from '../../../src/features/message/messageApi'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentChat } from '../../../src/features/message/messageSlice'
-import { setCurrentContact } from '../../../src/features/userChat/userChatSlice'
 
 const CardContact = ({ className, classChat, data, isOnline, photo }) => {
   const dispatch = useDispatch()
