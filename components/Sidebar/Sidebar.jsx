@@ -49,7 +49,7 @@ const Sidebar = ({ className }) => {
   } 
 
   useEffect(() => {
-    socket.current = io(import.meta.env.VITE_SOCKET_ENDPOINT)
+    socket.current = io('socket-realtime-chat-pijarcamp-production.up.railway.app')
 
     socket.current.on('get-users', (activeUsers) => {
       dispatch(setActiveUsers(activeUsers))

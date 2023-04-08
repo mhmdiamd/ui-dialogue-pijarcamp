@@ -21,7 +21,7 @@ const CardChatContent = () => {
   const scroll = useRef()
 
   useEffect(() => {
-    socket.current = io(import.meta.env.VITE_SOCKET_ENDPOINT)
+    socket.current = io('socket-realtime-chat-pijarcamp-production.up.railway.app')
   }, [])
 
   useEffect(() => {
