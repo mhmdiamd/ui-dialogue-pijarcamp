@@ -32,9 +32,9 @@ const NavbarChat = () => {
         <div className="userInformation d-flex align-items-center">
           <FontAwesomeIcon className='text-light me-2 d-sm-none fs-5' icon={faArrowLeft} onClick={backHandler}/>
 
-          <img src="https://source.unsplash.com/random/45x45/?person" className={`img-fluid pointer rounded-circle d-sm-none`} width={45} height={45} alt="" />
+          <img src="https://source.unsplash.com/random/45x45/?man" className={`img-fluid pointer rounded-circle d-sm-none`} width={45} height={45} alt="" />
 
-          <img src="https://source.unsplash.com/random/45x45/?person" className={`img-fluid pointer image-contact d-none d-sm-block`} width={64} height={62} alt="" />
+          <img src="https://source.unsplash.com/random/45x45/?man" className={`img-fluid pointer image-contact d-none d-sm-block`} width={64} height={62} alt="" />
 
           <div className="d-flex flex-column justify-content-center ms-2">
             <span className='fw-bold text-light'>{contactInfo?.name}</span>

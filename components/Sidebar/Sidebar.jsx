@@ -49,7 +49,7 @@ const Sidebar = ({ className }) => {
   } 
 
   useEffect(() => {
-    socket.current = io('https://socket-realtime-chat-pijarcamp-production.up.railway.app')
+    socket.current = io("http://localhost:3000")
 
     socket.current.on('get-users', (activeUsers) => {
       dispatch(setActiveUsers(activeUsers))
@@ -261,7 +261,7 @@ const Sidebar = ({ className }) => {
                     data={chat} 
                     isOnline={setIsOnline(chat)} 
                     classChat={`text-secondary `} 
-                    photo={`https://source.unsplash.com/random/45x4${5 + i}/?person`}
+                    photo={`https://source.unsplash.com/random/45x4${5 + i}/?man`}
                   />
                 ))
               }
@@ -292,7 +292,7 @@ const Sidebar = ({ className }) => {
               <div className="row">
                 <div className="col-12 d-flex flex-column">
                   {searchContact && dataSearchUser?.map((userSearch, i) => (
-                    <CardSearchContact key={i} data={userSearch} />
+                    <CardSearchContact key={i} data={userSearch} index={i} />
                   ))}
                 </div>
               </div>

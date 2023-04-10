@@ -3,7 +3,7 @@ import Swal from 'sweetalert2'
 import { failedLoading, showLoading, successLoading } from '../../../src/common/loadingHandler'
 import { useCreateUserChatMutation } from '../../../src/features/user/userApi'
 
-const CardSearchContact = ({ data }) => {
+const CardSearchContact = ({ data, index }) => {
   const [createUserChat, { isLoading, isSuccess, isError }] = useCreateUserChatMutation()
 
   const addContactHandler = async (e) => {
@@ -26,7 +26,7 @@ const CardSearchContact = ({ data }) => {
 
   return (
     <div className="cardNewContact pointer d-flex gap-3 w-100 bg-dark-secondary my-2 p-2 rounded" onClick={addContactHandler}>
-      <img src={`https://source.unsplash.com/random/64x64/?person`} className={`image-contact img-fluid  pointer`} width={64} height={62} alt="" />
+      <img src={`https://source.unsplash.com/random/64x6${4 + index}/?man`} className={`image-contact img-fluid  pointer`} width={64} height={62} alt="" />
       <div className="message d-flex flex-column justify-content-center overflow-x-hidden text-nowrap">
         <span className='text-light fw-semibold fs-5'>{data?.name}</span>
         <span className='text-secondary'>{data?.email}</span>
