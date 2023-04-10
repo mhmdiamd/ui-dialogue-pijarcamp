@@ -70,7 +70,7 @@ npm install
 ```
 
 - <a href="#setup-env">Setup .env</a>
-- Type ` npm run start` To Start Website
+- Type ` npm run dev` To Start Website
 - Type ` npm run production` To Start Production
 
 ### Setup .env
