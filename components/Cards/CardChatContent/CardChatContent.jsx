@@ -21,7 +21,7 @@ const CardChatContent = () => {
   const scroll = useRef()
 
   useEffect(() => {
-    socket.current = io("https://elated-capris-seal.cyclic.app")
+    socket.current = io("https://restapi-realtime-chat-pijarcamp-production.up.railway.app")
   }, [])
 
   useEffect(() => {
