@@ -49,7 +49,7 @@ const Sidebar = ({ className }) => {
   } 
 
   useEffect(() => {
-    socket.current = io("http://localhost:3000")
+    socket.current = io("https://https://socket-realtime-chat-pijarcamp-production.up.railway.app")
 
     socket.current.on('get-users', (activeUsers) => {
       dispatch(setActiveUsers(activeUsers))
