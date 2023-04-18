@@ -69,7 +69,7 @@ const CardChat = ({ data, user, scrollRef, index }) => {
     ) : (
       <div ref={scrollRef}
         className={`rowChat d-flex align-items-end gap-3 mb-3`}>
-        <img src="https://source.unsplash.com/random/45x45/?man" className={`image-chat img-fluid 
+        <img src="https://source.unsplash.com/random/45x45/?man"  className={`image-chat img-fluid 
         pointer d-sm-block d-none`} alt="" />
 
         <span className={`${style.chat} ${style.otherUser} bg-dark-secondary text-light p-3 text-wrap text-light`}>{
